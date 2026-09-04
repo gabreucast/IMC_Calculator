@@ -5,7 +5,7 @@ import '../components/height_selector.dart';
 import '../components/number_selector.dart';
 
 class ImcHomeScreen extends StatefulWidget {
-  const ImcHomeScreen ({super.key});
+  const ImcHomeScreen({super.key});
 
   @override
   State<ImcHomeScreen> createState() => _ImcHomeScreen();
@@ -18,7 +18,16 @@ class _ImcHomeScreen extends State<ImcHomeScreen> {
       children: [
         GenderSelector(),
         HeightSelector(),
-        //NumberSelector(),
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Expanded(child: NumberSelector(title: "Hello")),
+              SizedBox(width: 16),
+              Expanded(child: NumberSelector(title: "Hola")),
+            ],
+          ),
+        ),
       ],
     );
   }
