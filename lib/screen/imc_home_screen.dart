@@ -12,6 +12,9 @@ class ImcHomeScreen extends StatefulWidget {
 }
 
 class _ImcHomeScreen extends State<ImcHomeScreen> {
+  int selectedAge = 20;
+  int selectedWeight = 80;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,9 +25,37 @@ class _ImcHomeScreen extends State<ImcHomeScreen> {
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [
-              Expanded(child: NumberSelector(title: "Hello")),
+              Expanded(
+                child: NumberSelector(
+                  title: "peso",
+                  value: selectedWeight,
+                  onDecrement: () {
+                    setState(() {
+                      selectedWeight--;
+                    });
+                  },
+                  onIncrement: () {
+                    setState(() {
+                      selectedWeight++;
+                    });
+                  },
+                ),
+              ),
               SizedBox(width: 16),
-              Expanded(child: NumberSelector(title: "Hola")),
+              Expanded(child: NumberSelector(
+                title: "altura",
+                value: selectedAge,
+                onDecrement: () {
+                  setState(() {
+                    selectedAge--;
+                  });
+                },
+                onIncrement: () {
+                  setState(() {
+                    selectedAge++;
+                  });
+                },
+              )),
             ],
           ),
         ),
